@@ -2,6 +2,8 @@ library(ggplot2)
 library(readxl)
 library(tidyverse)
 library(dplyr)
+library(patchwork)
+library(ggmap)
 
 Data <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv")
 
@@ -113,7 +115,7 @@ ratio_black_white_1996_LA
 #1.844801
 
 #################################Chart################################
-############Tends over time chart
+##########Tends over time chart
 Data_trends_map <- filter(Data,
   county_name  == "New York County")
 #view(Data_trends_map)
@@ -140,6 +142,30 @@ Variable_comparsion_black_white_NY <- ggplot(Data_trends_map, aes(x = white_jail
 
 Variable_comparsion_black_white_NY
 
-#Map
+##########Map
 
+Map_trend <- data.frame(
+  Data %>%
+  filter(year == "1996") %>%
+    select(county_name, total_jail_pop, black_jail_pop, white_jail_pop) %>%
+    mutate(county_name = tolower(county_name)) %>%
+    mutate(county_name = word(county_name, 1, -2))
+  )
+colnames(Map_trend)[which(names(Map_trend) == "county_name")] <- "subregion"
+
+county_shape <- map_data("county")
+
+county_shape <- left_join(county_shape, Map_trend, by="subregion")
+
+county_shape_data <- county_shape %>%
+  filter(!is.na(county_shape$black_jail_pop))
+
+
+County_map <- ggplot(county_shape_data, aes(x = long, y = lat, group= group)) +
+    geom_polygon(aes(fill = black_jail_pop), color="white")+
+  scale_fill_gradient(name = "Number of Black people", low = "green", high = "red") + 
+  labs(title = "The trend map of the black people in the jail in 1996") +
+  coord_map()
+
+County_map
 
