@@ -113,10 +113,10 @@ ratio_black_white_1996_LA
 #1.844801
 
 #################################Chart################################
-#Tends over time chart
+############Tends over time chart
 Data_trends_map <- filter(Data,
   county_name  == "New York County")
-##view(Data_trends_map)
+#view(Data_trends_map)
 
 Trend_over_time_chart_black <- ggplot(Data_trends_map, aes(x = year, y=black_jail_pop)) +
   geom_line(col='black')+
@@ -128,9 +128,17 @@ Trend_over_time_chart_white <- ggplot(Data_trends_map, aes(x = year, y=white_jai
   labs(title = "Trend map of the white jail population in the New York city", x = "Year",
        y = "The population of the white people in the Jail")
 
+Trend_over_time_chart_black + 
+Trend_over_time_chart_white
 
-#Variable comparsion chart
+##########Variable comparsion chart
+Variable_comparsion_black_white_NY <- ggplot(Data_trends_map, aes(x = white_jail_pop, y=black_jail_pop)) +
+  geom_point(aes(col = county_name)) + 
+  geom_smooth() +
+  labs(title = "Comparing the case number of black and white people in the Jail",
+       x = "The white people population in jail", y="The black people population in jail")
 
+Variable_comparsion_black_white_NY
 
 #Map
 
