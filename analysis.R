@@ -13,14 +13,14 @@ Data <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration
 max_black_jail_pop <- Data %>%
   filter(black_jail_pop == max(black_jail_pop, na.rm = TRUE)) %>%
   pull(black_jail_pop)
-max_black_jail
+max_black_jail_pop
 #13143.92
 
 #max_white_jail_pop
 max_white_jail_pop <- Data %>%
   filter(white_jail_pop == max(white_jail_pop, na.rm = TRUE)) %>%
   pull(white_jail_pop)
-max_white_jail
+max_white_jail_pop
 #7036.59
 
 
@@ -130,7 +130,7 @@ Trend_over_time_chart_white <- ggplot(Data_trends_map, aes(x = year, y=white_jai
   labs(title = "Trend map of the white jail population in the New York city", x = "Year",
        y = "The population of the white people in the Jail")
 
-Trend_over_time_chart_black + 
+Trend_over_time_chart_black 
 Trend_over_time_chart_white
 
 ##########Variable comparsion chart

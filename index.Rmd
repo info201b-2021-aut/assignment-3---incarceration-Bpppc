@@ -1,0 +1,129 @@
+---
+title: "Assignment-3"
+author: "BolanPeng"
+date: "2021/11/21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r include=FALSE} 
+library("knitr")
+source("analysis.R")
+```
+
+
+
+## Introduction
+
+In this report, I am looking at the total population of the black and white males in the jail and a total population of black and white females in the jail. I use the r studio to find out which year has the most black and white male or female in the jail. which county has the most population of males or females in the jail. That information can tell us what has been happened to the total population in the jail and then we can use this information to analyze the data.
+
+
+
+## summary information and values anyslsiz
+
+1.What is the max population for black people in jail?
+```{r, echo=FALSE}
+max_black_jail_pop
+```
+
+2.What is the max population for white people in jail?
+```{r, echo=FALSE}
+max_white_jail_pop
+```
+
+3.Which year has the highest number of males in jail?
+```{r, echo=FALSE}
+Highest_male_jail_year
+```
+
+4.Which year has the highest number of females in jail?
+```{r, echo=FALSE}
+Highest_female_jail_year
+```
+
+5.What is the mean number of white males in prison in 1996?
+```{r, echo=FALSE}
+mean_white_male_1996
+```
+
+6.What is the mean number of black males in prison in 1996?
+```{r, echo=FALSE}
+mean_black_male_1996
+```
+
+7.What is the mean number of white females in prison in 1991?
+```{r, echo=FALSE}
+mean_white_female_1991
+```
+
+8.What is the mean number of black females in prison in 1991?
+```{r, echo=FALSE}
+mean_black_female_1991
+```
+
+9. which county has the highest black males in prison?
+```{r, echo=FALSE}
+county_max_black_male
+```
+
+10.which county has the highest white males in prison?
+```{r, echo=FALSE}
+county_max_white_male
+```
+11.which county has the highest black females in prison?
+```{r, echo=FALSE}
+county_max_balck_female
+```
+
+12.which county has the highest white females in prison?
+```{r, echo=FALSE}
+county_max_white_female
+```
+
+13.What is the ratio of the black and white population in New York county in 1996?
+```{r, echo=FALSE}
+ratio_black_white_1996_NY
+```
+
+14.What is the ratio of the black and white population in Low Angeles county in 1996?
+```{r, echo=FALSE}
+ratio_black_white_1996_LA
+```
+
+#Anylsis
+In the analysis of the database, I have found out that the county that has the highest number of white males in prison in Los Angeles county. The county has the highest number of black males in prison in New York county. The county has the highest number of white females in prison is Maricopa County. The county that has the highest number of black females in prison in Los Angeles County. As we can get from this data, there are not many differences between the black and white population in jail in Low Angeles county in 1996. But it has a great difference between the black and white population in jail in New York county in 1996 which might cause by other reasons like location, culture, and social prejudice.
+
+## Trending Over Time Chart
+# Analysis
+This trending over time chart is about the black and white jail population in New York City each year. When we compare those two charts, we will find out that the trend of the white population in the jail of NY county has shown us a decrease trending line each year. . Nevertheless, the black population in the jail of NY county has also shown us a decrease trending line in each year.  
+
+```{r, echo=FALSE}
+Trend_over_time_chart_black
+```
+
+```{r, echo=FALSE}
+Trend_over_time_chart_white
+```
+
+
+
+## Variable Comparsion chart
+# Analysis
+This variable comparison chart has shown us the population comparison between back and white in the jail of NY county. The reason that I want to create this chart is to see what is the comparing the  case numbers between black and white people in the Jail. 
+
+```{r, echo=FALSE}
+Variable_comparsion_black_white_NY
+```
+
+
+
+## Map chart
+# Analysis
+In the map chart. I am trying to show the trend fo the black people in the jail in 2001. As we can see in the chart. There are more  cases in the jail in the west area than the east area. 
+
+```{r, echo=FALSE}
+County_map
+```
